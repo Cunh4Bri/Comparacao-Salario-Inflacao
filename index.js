@@ -49,20 +49,20 @@ switch (opcao) {
 
         for (let salarios of salarioMinimo) {
 
-            let anosSalario = salarios.ano;
-            let salariosAno = salarios.salario;
-            console.log('Ano: '.padEnd(25, '.') + anosSalario);
-            console.log('Salário mínimo: '.padEnd(25, '.') + 'R$ ' + salariosAno.toFixed(2).replace('.', ',') + '\n\n');
+            let ano = salarios.ano;
+            let salario = salarios.salario;
+            console.log('Ano: '.padEnd(25, '.') + ano);
+            console.log('Salário mínimo: '.padEnd(25, '.') + 'R$ ' + salario.toFixed(2).replace('.', ',') + '\n\n');
         }
         break;
 
     case 2:
         for (let inflacoes of inflacao) {
 
-            let anosInflacao = inflacoes.ano;
-            let ipcaAno = inflacoes.ipca;
-            console.log('Ano: '.padEnd(25, '.') + anosInflacao);
-            console.log('Inflação IPCA: '.padEnd(25, '.') + ipcaAno.toFixed(2).replace('.', ',') + '% ' + '\n\n');
+            let ano = inflacoes.ano;
+            let ipca = inflacoes.ipca;
+            console.log('Ano: '.padEnd(25, '.') + ano);
+            console.log('Inflação IPCA: '.padEnd(25, '.') + ipca.toFixed(2).replace('.', ',') + '% ' + '\n\n');
         }
         break;
 
@@ -71,26 +71,26 @@ switch (opcao) {
 
         for (let i = 0; i <= salarioMinimo.length - 1; i++) {
 
-            let anoCorrecao = salarioMinimo[i].ano;
-            let salarioAno = salarioMinimo[i].salario;
-            let percentualCrescomento;
-            let ipcaCorrecao = inflacao[i].ipca;
+            let ano = salarioMinimo[i].ano;
+            let salario = salarioMinimo[i].salario;
+            let percentualCrescimento;
+            let ipca = inflacao[i].ipca;
 
             if (i > 0) {
                 let salarioAnterior = salarioMinimo[i - 1].salario;
-                let diferenca = salarioAno - salarioAnterior
+                let diferenca = salario - salarioAnterior
 
-                percentualCrescomento = ((diferenca / salarioAnterior) * 100).toFixed(2) + '%';
+                percentualCrescimento = ((diferenca / salarioAnterior) * 100).toFixed(2) + '%';
 
             } else {
 
-                percentualCrescomento = "-";
+                percentualCrescimento = "-";
             }
 
-            console.log('Ano: '.padEnd(25, '.') + anoCorrecao)
-            console.log('Salário mínimo: '.padEnd(25, '.') + 'R$ ' + salarioAno.toFixed(2).replace('.', ','));
-            console.log('Crescimento salárial: '.padEnd(25, '.') + percentualCrescomento.replace('.', ','));
-            console.log('Inflação IPCA: '.padEnd(25, '.') + ipcaCorrecao.toFixed(2).replace('.', ',') + '% ' + '\n\n');
+            console.log('Ano: '.padEnd(25, '.') + ano)
+            console.log('Salário mínimo: '.padEnd(25, '.') + 'R$ ' + salario.toFixed(2).replace('.', ','));
+            console.log('Crescimento salárial: '.padEnd(25, '.') + percentualCrescimento.replace('.', ','));
+            console.log('Inflação IPCA: '.padEnd(25, '.') + ipca.toFixed(2).replace('.', ',') + '% ' + '\n\n');
         }
 
         break;
